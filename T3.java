@@ -30,8 +30,7 @@ public class T3 {
         System.out.println(); 
     }
 
-        public static boolean aplicarOuLogico(va, vb){ //*****REVER ESSA QUESTÃO******
-        //Ou lógico
+        public static boolean aplicarOuLogico(va, vb){ 
 
         for (int i = 0; i < v.length; i++) {
             resultado[i] = v[i] || w[i];
@@ -44,33 +43,15 @@ public class T3 {
     }
 
         // Matrizibvertida
-
         public static int matrizTranspor([]m_1, []m_2){
-        int[][] invertida = matrizInvertida(A);
-
-        for (int[] linha : invertida) {
+        for (int[] linha : m_1) {
             for (int valorInvertido : linha) {
                 System.out.print(valorInvertido + " ");
             }
             System.out.println(); 
         }
         }
-        //Permutação de linhas
-        int[][] matriz = {
-            {1, 2, 3},
-            {4, 5, 6},
-            {7, 8, 9}
-        };
 
-        int[][] matrizAtualizada = matrizPermutacaoLinhas(matriz, 0, 2);
-
-        for (int[] linha : matrizAtualizada) {
-            for (int valor : linha) {
-                System.out.print(valor + " ");
-            }
-            System.out.println(); 
-        }
-    }
 
     public static boolean[] aplicarELogico(boolean va[], boolean vb[]) {
         boolean[] retorno = new boolean[va.length];
@@ -120,8 +101,15 @@ public class T3 {
         // Troca a linhas fa mtriz
         matriz[linha1] = matriz[linha2];
         matriz[linha2] = temp;
-
+    
+        for (int[] linha : matrizAtualizada) {
+            for (int valor : linha) {
+                System.out.print(valor + " ");
+            }
+        }
+        
         return matriz; 
+
     }
 }
 
