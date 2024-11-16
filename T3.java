@@ -12,7 +12,6 @@ public class T3 {
         }
         
         public static int filtrarMaiores(int[] vetor, int x){
-        //Filtrar valores maiores
         for (int i = 0; i < vetor.length; i++) {
             if (vetor[i] > x) {
                 System.out.println(vetor[i]);
@@ -20,6 +19,7 @@ public class T3 {
         }
         System.out.println(vetor); 
     }
+
         public static int filtrarMenores(int[] vetor, int x){
         //Filtrar valores menores
         for (int i = 0; i < vetor.length; i++) {
@@ -43,30 +43,9 @@ public class T3 {
         System.out.println(); 
     }
 
-
-        //E lógico **********REVER ESSA QUESTÃO***********
-        boolean[] resultadoE = eLogico(v, w);
-        for (int i = 0; i < resultadoE.length; i++) {
-            System.out.print(resultadoE[i] + " ");
-        }
-        System.out.println(); 
-
-        //Aplicar máscara
-        int[] vMask = {1, 2, 3, 4, 5};
-        boolean[] mascara = {true, true, true, false, true};
-        int[] resultadoMask = aplicarMascara(vMask, mascara);
-
-        for (int i = 0; i < resultadoMask.length; i++) {
-            System.out.print(resultadoMask[i] + " ");
-        }
-        System.out.println(); 
-
         // Matrizibvertida
-        int[][] A = {
-            {1, 2, 3},
-            {4, 5, 6}
-        };
 
+        public static int matrizTranspor([]m_1, []m_2){
         int[][] invertida = matrizInvertida(A);
 
         for (int[] linha : invertida) {
@@ -75,8 +54,7 @@ public class T3 {
             }
             System.out.println(); 
         }
-        System.out.println();
-
+        }
         //Permutação de linhas
         int[][] matriz = {
             {1, 2, 3},
@@ -94,17 +72,17 @@ public class T3 {
         }
     }
 
-    public static boolean[] eLogico(boolean v[], boolean w[]) {
-        boolean[] resultado = new boolean[v.length];
+    public static boolean[] aplicarELogico(boolean va[], boolean vb[]) {
+        boolean[] retorno = new boolean[va.length];
 
-        for (int i = 0; i < v.length; i++) {
-            resultado[i] = v[i] && w[i];
+        for (int i = 0; i < va.length; i++) {
+            retorno[i] = va[i] && vb[i];
         }
 
-        return resultado;
+        return retorno;
     }
 
-    public static int[] aplicarMascara(int[] v, boolean[] mascara) {
+    public static int[] aplicarMascara(int[] v1, boolean[] mascara1) {
         int tamanho = 0;
         for (int i = 0; i < mascara.length; i++) {
             if (mascara[i]) {
