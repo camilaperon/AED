@@ -124,7 +124,13 @@ public class T3 {
             for (int j = 0; j < vb.length; j++) {
                 if (va[i] == vb[j]) {
                     vc[cont] = va[i];
-                    cont++;
+                    for(int k = 0; k < cont; k++){
+                        if(va[i] != vc[cont]){
+                            cont++;
+                        }else{
+                            
+                        }
+                    }
                 }
             }
         }
@@ -162,8 +168,22 @@ public class T3 {
     
         return resultado;
     }
-    
 
+    /*public static int[][] trianguloDePascal(int m){
+        int linhas = m;
+        int colunas = m;
+        int resultado[][] = new int[m][0];
+
+        for(int i = 0; i < m; i++){
+            linhas = 1;
+            for(int j = 1; j < m ; j++){
+                colunas = 0;
+                resultado[linhas][colunas];
+            }
+        }
+        return resultado;
+
+    }*/
 
     // 11. Matriz transposta n enetendi nd
     public static int[][] matrizTranspor(int[][] m) {
@@ -187,4 +207,6 @@ public class T3 {
         m[linha2] = x;
         return m;
     }
+
+
 }

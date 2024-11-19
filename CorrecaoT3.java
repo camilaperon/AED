@@ -156,8 +156,8 @@ public class CorrecaoT3{
         retorno_3 = T3.intersecao(va_3, vb_3);
         mostrarVetor(retorno_3);
 
-        int[] va_4 = {1, 1, 1, 1};
-        int[] vb_4 = {};
+        int[] va_4 = {1, 2, 1, 2};
+        int[] vb_4 = {1, 2, 1, 2};
         int[] retorno_4;
 
         retorno_4 = T3.intersecao(va_4, vb_4);
@@ -167,7 +167,7 @@ public class CorrecaoT3{
         int[] vb_5 = {};
         int[] retorno_5;
 
-        retorno_5 = T3.intersecao(va_4, vb_5);
+        retorno_5 = T3.intersecao(va_5, vb_5);
         mostrarVetor(retorno_5);
 
 
@@ -216,7 +216,7 @@ public class CorrecaoT3{
         System.out.println();
     }
 
-   /*  public static void q10(){
+     /*public static void q10(){
         System.out.println("## Questão 10 - Triangulo de Pascal ##");
         
         mostrarMatriz(T3.trianguloDePascal(5));
