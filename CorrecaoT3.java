@@ -11,10 +11,10 @@ public class CorrecaoT3{
         q7(); //União
         q8(); //Interseção
         q9(); //Diferença
-        q10(); //Triangulo de Pascal
+      //  q10(); //Triangulo de Pascal
         q11(); //MatrizTransposta
         q12(); //Permutacao de Linhas
-        q13(); //Multiplicação de matrizes
+       // q13(); //Multiplicação de matrizes
     }    
 
     public static void q1(){
@@ -216,7 +216,7 @@ public class CorrecaoT3{
         System.out.println();
     }
 
-    public static void q10(){
+   /*  public static void q10(){
         System.out.println("## Questão 10 - Triangulo de Pascal ##");
         
         mostrarMatriz(T3.trianguloDePascal(5));
@@ -224,7 +224,7 @@ public class CorrecaoT3{
         mostrarMatriz(T3.trianguloDePascal(10));
 
         System.out.println();
-    }
+    }*/
 
     public static void q11(){
         System.out.println("## Questão 11 - Matriz Transposta ##");
@@ -250,7 +250,7 @@ public class CorrecaoT3{
         System.out.println();
     }
 
-    public static void q13(){
+    /*public static void q13(){
         System.out.println("## Questão 13 - Multiplicação de matrizes ##");
         
         int[][] m1_a = {{1,2,3},{4,5,6},{7,8,9}};
@@ -263,7 +263,7 @@ public class CorrecaoT3{
 
         System.out.println();
     }
-
+*/
     public static void mostrarVetor(int v[]){
 
         for(int i=0; i<v.length;i++){

@@ -51,123 +51,121 @@ public class T3 {
         return resultado;
     }
 
-    // Questão 4 - Aplicar operação E lógico
+    //4.Aplicar E lógico
     public static boolean[] aplicarELogico(boolean[] va, boolean[] vb) {
-        int length = Math.min(va.length, vb.length);
+        int length = va.length; 
+        if (vb.length < va.length) {
+            length = vb.length;
+        }
         boolean[] resultado = new boolean[length];
         for (int i = 0; i < length; i++) {
             resultado[i] = va[i] && vb[i];
         }
         return resultado;
     }
+    
 
-    // Questão 5 - Aplicar operação OU lógico
+    //5. Aplicar OU lógico
     public static boolean[] aplicarOuLogico(boolean[] va, boolean[] vb) {
-        int length = Math.min(va.length, vb.length);
+        int length = va.length;
+        if (vb.length < va.length) {
+            length = vb.length;
+        }
         boolean[] resultado = new boolean[length];
         for (int i = 0; i < length; i++) {
             resultado[i] = va[i] || vb[i];
         }
         return resultado;
     }
+    
 
-    // Questão 6 - Aplicar máscara
+    //6. Aplicar máscara, mostra só os true os de vdd eu sei quem sao
     public static int[] aplicarMascara(int[] v, boolean[] mascara) {
-        int count = 0;
+        int cont = 0;
         for (int i = 0; i < v.length; i++) {
-            if (mascara[i]) {
-                count++;
+            if (mascara[i]) { // SAQUI ELE VEQUANRAS POSICOES TERÁ NO VETOR
+                cont++;
             }
         }
 
-        int[] resultado = new int[count];
-        int index = 0;
+        int[] resultado = new int[cont];
+        int novPos = 0;
         for (int i = 0; i < v.length; i++) {
-            if (mascara[i]) {
-                resultado[index++] = v[i];
+            if (mascara[i]) { // AAQUI ELE VERIFICA SE A MASCARA NA POSICAO I É VDD E AI ADICIONA
+                resultado[novPos++] = v[i];
             }
         }
 
         return resultado;
     }
 
-    // Questão 7 - União de dois vetores
+    //7. União 
     public static int[] uniao(int[] va, int[] vb) {
-        int[] temp = new int[va.length + vb.length];
-        int index = 0;
+        int[] vc = new int[va.length + vb.length];
+        int cont = 0;
         
-        // Adicionar todos os elementos de va
         for (int i = 0; i < va.length; i++) {
-            temp[index++] = va[i];
+            vc[cont++] = va[i];
         }
 
-        // Adicionar todos os elementos de vb
         for (int i = 0; i < vb.length; i++) {
-            temp[index++] = vb[i];
+            vc[cont++] = vb[i];
         }
 
-        return temp;
+        return vc;
     }
 
-    // Questão 8 - Interseção de dois vetores
+    //8. Interseção vetores
     public static int[] intersecao(int[] va, int[] vb) {
-        int[] temp = new int[Math.min(va.length, vb.length)];
-        int index = 0;
-
+        int[] vc = new int[va.length]; 
+        int cont = 0;
+    
         for (int i = 0; i < va.length; i++) {
             for (int j = 0; j < vb.length; j++) {
                 if (va[i] == vb[j]) {
-                    temp[index++] = va[i];
-                    break;
+                    vc[cont] = va[i];
+                    cont++;
                 }
             }
         }
-
-        // Ajuste no tamanho do vetor
-        int[] resultado = new int[index];
-        System.arraycopy(temp, 0, resultado, 0, index);
+    
+        int[] resultado = new int[cont];
+        for (int i = 0; i < cont; i++) {
+            resultado[i] = vc[i];
+        }
+    
         return resultado;
     }
+    
 
-    // Questão 9 - Diferença de dois vetores
+    //9. Diferença vetores
     public static int[] diferenca(int[] va, int[] vb) {
-        int[] temp = new int[va.length];
-        int index = 0;
-
+        int[] vc = new int[va.length]; 
+        int cont = 0;
+    
         for (int i = 0; i < va.length; i++) {
             boolean encontrado = false;
             for (int j = 0; j < vb.length; j++) {
                 if (va[i] == vb[j]) {
                     encontrado = true;
-                    break;
                 }
             }
             if (!encontrado) {
-                temp[index++] = va[i];
+                vc[cont] = va[i];
+                cont++;
             }
         }
-
-        // Ajuste no tamanho do vetor
-        int[] resultado = new int[index];
-        System.arraycopy(temp, 0, resultado, 0, index);
+        int[] resultado = new int[cont];
+        for (int i = 0; i < cont; i++) {
+            resultado[i] = vc[i];
+        }
+    
         return resultado;
     }
+    
 
-    // Questão 10 - Triângulo de Pascal
-    public static int[][] trianguloDePascal(int n) {
-        int[][] pascal = new int[n][];
-        for (int i = 0; i < n; i++) {
-            pascal[i] = new int[i + 1];
-            pascal[i][0] = 1;
-            pascal[i][i] = 1;
-            for (int j = 1; j < i; j++) {
-                pascal[i][j] = pascal[i - 1][j - 1] + pascal[i - 1][j];
-            }
-        }
-        return pascal;
-    }
 
-    // Questão 11 - Matriz transposta
+    // 11. Matriz transposta n enetendi nd
     public static int[][] matrizTranspor(int[][] m) {
         int linhas = m.length;
         int colunas = m[0].length;
@@ -182,62 +180,11 @@ public class T3 {
         return resultado;
     }
 
-    // Questão 12 - Permutação de linhas
+    //12. Permutação de linhas
     public static int[][] matrizPermutacaoLinhas(int[][] m, int linha1, int linha2) {
-        int[] temp = m[linha1];
+        int[] x = m[linha1];
         m[linha1] = m[linha2];
-        m[linha2] = temp;
+        m[linha2] = x;
         return m;
-    }
-
-    // Questão 13 - Multiplicação de matrizes
-    public static int[][] matrizMultInt(int[][] m1, int[][] m2) {
-        int linhasM1 = m1.length;
-        int colunasM1 = m1[0].length;
-        int linhasM2 = m2.length;
-        int colunasM2 = m2[0].length;
-
-        if (colunasM1 != linhasM2) {
-            throw new IllegalArgumentException("Número de colunas de m1 deve ser igual ao número de linhas de m2.");
-        }
-
-        int[][] resultado = new int[linhasM1][colunasM2];
-
-        for (int i = 0; i < linhasM1; i++) {
-            for (int j = 0; j < colunasM2; j++) {
-                for (int k = 0; k < colunasM1; k++) {
-                    resultado[i][j] += m1[i][k] * m2[k][j];
-                }
-            }
-        }
-
-        return resultado;
-    }
-
-    // Método auxiliar para mostrar um vetor de inteiros
-    public static void mostrarVetor(int v[]) {
-        for (int i = 0; i < v.length; i++) {
-            System.out.printf("%d ", v[i]);
-        }
-        System.out.println();
-    }
-
-    // Método auxiliar para mostrar uma matriz de inteiros
-    public static void mostrarMatriz(int m[][]) {
-        for (int i = 0; i < m.length; i++) {
-            for (int j = 0; j < m[i].length; j++) {
-                System.out.printf("%d ", m[i][j]);
-            }
-            System.out.println();
-        }
-        System.out.println();
-    }
-
-    // Método auxiliar para mostrar um vetor de booleanos
-    public static void mostrarVetor(boolean v[]) {
-        for (int i = 0; i < v.length; i++) {
-            System.out.printf("%b ", v[i]);
-        }
-        System.out.println();
     }
 }
