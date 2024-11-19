@@ -1,27 +1,27 @@
 public class T3 {
 
-    // Questão 1 - Mostrar inteiros com separador
+    //1. Mostrar inteiros com caracter separador
     public static void mostrarInteiros(int[] v, char sep) {
         for (int i = 0; i < v.length; i++) {
-            System.out.print(v[i]);
-            if (i < v.length - 1) {
+            System.out.print(v[i]); //vai mostrar v na posicao i
+            if (i < v.length - 1) { //pro final ficar sem anda
                 System.out.print(sep);
             }
         }
         System.out.println();
     }
 
-    // Questão 2 - Filtrar maiores que x
+    //2. Filtrar maiores 
     public static int[] filtrarMaiores(int[] v, int x) {
-        int count = 0;
+        int count = 0; 
         for (int i = 0; i < v.length; i++) {
             if (v[i] > x) {
                 count++;
             }
         }
 
-        int[] resultado = new int[count];
-        int index = 0;
+        int[] resultado = new int[count];//determina o tamanho do vetor final
+        int index = 0; // pposicao no vetor
         for (int i = 0; i < v.length; i++) {
             if (v[i] > x) {
                 resultado[index++] = v[i];
@@ -31,7 +31,7 @@ public class T3 {
         return resultado;
     }
 
-    // Questão 3 - Filtrar menores que x
+    //3. Filtrar menores mesma coisa que a de cima
     public static int[] filtrarMenores(int[] v, int x) {
         int count = 0;
         for (int i = 0; i < v.length; i++) {
