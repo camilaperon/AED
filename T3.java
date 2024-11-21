@@ -103,34 +103,60 @@ public class T3 {
     public static int[] uniao(int[] va, int[] vb) {
         int[] vc = new int[va.length + vb.length];
         int cont = 0;
-        
+    
         for (int i = 0; i < va.length; i++) {
-            vc[cont++] = va[i];
+            boolean jaAdicionado = false;
+            for (int k = 0; k < cont; k++) {
+                if (vc[k] == va[i]) {
+                    jaAdicionado = true;
+                    break;
+                }
+            }
+            if (!jaAdicionado) {
+                vc[cont++] = va[i];
+            }
         }
-
+    
         for (int i = 0; i < vb.length; i++) {
-            vc[cont++] = vb[i];
+            boolean jaAdicionado = false;
+            for (int k = 0; k < cont; k++) {
+                if (vc[k] == vb[i]) {
+                    jaAdicionado = true;
+                    break;
+                }
+            }
+            if (!jaAdicionado) {
+                vc[cont++] = vb[i];
+            }
         }
-
-        return vc;
+    
+        int[] resultado = new int[cont];
+        for (int i = 0; i < cont; i++) {
+            resultado[i] = vc[i];
+        }
+    
+        return resultado;
     }
 
     //8. Interseção vetores
     public static int[] intersecao(int[] va, int[] vb) {
         int[] vc = new int[va.length]; 
         int cont = 0;
+        int k;
     
         for (int i = 0; i < va.length; i++) {
             for (int j = 0; j < vb.length; j++) {
                 if (va[i] == vb[j]) {
-                    vc[cont] = va[i];
-                    for(int k = 0; k < cont; k++){
-                        if(va[i] != vc[cont]){
-                            cont++;
-                        }else{
-                            
+                    for(k = 0; k < cont; k++){
+                        if (vc[k] == va[i]) { 
+                            break;
                         }
                     }
+                    if (k == cont) { 
+                        vc[cont++] = va[i];
+                    }
+                    break;
+                    
                 }
             }
         }
@@ -142,49 +168,53 @@ public class T3 {
     
         return resultado;
     }
-    
+// 9. Diferença vetores
+public static int[] diferenca(int[] va, int[] vb) {
+    int[] vc = new int[va.length];
+    int cont = 0;
 
-    //9. Diferença vetores
-    public static int[] diferenca(int[] va, int[] vb) {
-        int[] vc = new int[va.length]; 
-        int cont = 0;
-    
-        for (int i = 0; i < va.length; i++) {
-            boolean encontrado = false;
-            for (int j = 0; j < vb.length; j++) {
-                if (va[i] == vb[j]) {
-                    encontrado = true;
+    for (int i = 0; i < va.length; i++) {
+        boolean encontrado = false;
+        for (int j = 0; j < vb.length; j++) {
+            if (va[i] == vb[j]) {
+                encontrado = true;
+                break;
+            }
+        }
+        if (!encontrado) {
+            boolean jaAdicionado = false;
+            for (int k = 0; k < cont; k++) {
+                if (vc[k] == va[i]) {
+                    jaAdicionado = true;
+                    break;
                 }
             }
-            if (!encontrado) {
+            if (!jaAdicionado) {
                 vc[cont] = va[i];
                 cont++;
             }
         }
-        int[] resultado = new int[cont];
-        for (int i = 0; i < cont; i++) {
-            resultado[i] = vc[i];
-        }
-    
-        return resultado;
     }
 
-    /*public static int[][] trianguloDePascal(int m){
-        int linhas = m;
-        int colunas = m;
-        int resultado[][] = new int[m][0];
+    int[] resultado = new int[cont];
+    for (int i = 0; i < cont; i++) {
+        resultado[i] = vc[i];
+    }
 
-        for(int i = 0; i < m; i++){
-            linhas = 1;
-            for(int j = 1; j < m ; j++){
-                colunas = 0;
-                resultado[linhas][colunas];
-            }
+    return resultado;
+}
+/*public static int[][] trianguloDePascal(int m) {
+    int[][] resultado = new int[m][m];
+    
+    for (int i = 0; i < m; i++) {
+        resultado[i][0] = 1; // Primeiro elemento de cada linha é sempre 1
+        for (int j = 1; j <= i; j++) {
+            resultado[i][j] = resultado[i - 1][j - 1] + resultado[i - 1][j]; // Soma dos dois elementos acima
         }
-        return resultado;
-
-    }*/
-
+    }
+    
+    return resultado;
+}*/
     // 11. Matriz transposta n enetendi nd
     public static int[][] matrizTranspor(int[][] m) {
         int linhas = m.length;
@@ -199,7 +229,6 @@ public class T3 {
 
         return resultado;
     }
-
     //12. Permutação de linhas
     public static int[][] matrizPermutacaoLinhas(int[][] m, int linha1, int linha2) {
         int[] x = m[linha1];
@@ -207,6 +236,4 @@ public class T3 {
         m[linha2] = x;
         return m;
     }
-
-
 }
