@@ -203,18 +203,18 @@ public static int[] diferenca(int[] va, int[] vb) {
 
     return resultado;
 }
-/*public static int[][] trianguloDePascal(int m) {
+public static int[][] trianguloDePascal(int m) {
     int[][] resultado = new int[m][m];
     
     for (int i = 0; i < m; i++) {
-        resultado[i][0] = 1; // Primeiro elemento de cada linha é sempre 1
+        resultado[i][0] = 1; // oq ta erradp mds
         for (int j = 1; j <= i; j++) {
-            resultado[i][j] = resultado[i - 1][j - 1] + resultado[i - 1][j]; // Soma dos dois elementos acima
+            //resultado[i] /*ele vai retornar o numero 1*/[j]/*numero q ta em j */ ; 
         }
     }
     
     return resultado;
-}*/
+}
     // 11. Matriz transposta n enetendi nd
     public static int[][] matrizTranspor(int[][] m) {
         int linhas = m.length;
