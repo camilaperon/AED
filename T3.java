@@ -83,7 +83,7 @@ public class T3 {
     public static int[] aplicarMascara(int[] v, boolean[] mascara) {
         int cont = 0;
         for (int i = 0; i < v.length; i++) {
-            if (mascara[i]) { // SAQUI ELE VEQUANRAS POSICOES TERÁ NO VETOR
+            if (mascara[i]) { // AQUI ELE VE QUANtaS POSICOES TERÁ NO VETOR
                 cont++;
             }
         }
@@ -105,19 +105,19 @@ public class T3 {
         int cont = 0;
     
         for (int i = 0; i < va.length; i++) {
-            boolean jaAdicionado = false;
+            boolean jaAdicionado = false; //se o número ainda n foi adicionado, adiciona
             for (int k = 0; k < cont; k++) {
                 if (vc[k] == va[i]) {
-                    jaAdicionado = true;
+                    jaAdicionado = true;// se o número ja foi adicionado, ele pula
                     break;
                 }
             }
             if (!jaAdicionado) {
-                vc[cont++] = va[i];
+                vc[cont++] = va[i]; //se nao tiver sido adicionado, ele faz o cont++ e armazena o valor.
             }
         }
     
-        for (int i = 0; i < vb.length; i++) {
+        for (int i = 0; i < vb.length; i++) { //aqui faz o mesmo q de cima, só q com o vetor b 
             boolean jaAdicionado = false;
             for (int k = 0; k < cont; k++) {
                 if (vc[k] == vb[i]) {
@@ -130,9 +130,9 @@ public class T3 {
             }
         }
     
-        int[] resultado = new int[cont];
+        int[] resultado = new int[cont]; //aloca um vetor do tamanho do contador
         for (int i = 0; i < cont; i++) {
-            resultado[i] = vc[i];
+            resultado[i] = vc[i]; //armazena no vetor
         }
     
         return resultado;
@@ -140,56 +140,56 @@ public class T3 {
 
     //8. Interseção vetores
     public static int[] intersecao(int[] va, int[] vb) {
-        int[] vc = new int[va.length]; 
+        int[] vc = new int[va.length]; //armazena o valor de va em vc
         int cont = 0;
         int k;
     
         for (int i = 0; i < va.length; i++) {
             for (int j = 0; j < vb.length; j++) {
-                if (va[i] == vb[j]) {
-                    for(k = 0; k < cont; k++){
-                        if (vc[k] == va[i]) { 
-                            break;
+                if (va[i] == vb[j]) { //se o valor do va na posicao i for igual ao valor de vb na posicao j
+                    for(k = 0; k < cont; k++){// entra pro for
+                        if (vc[k] == va[i]) { //se o valor que esta em vc na posicao k for igual ao valor de va na posicao i
+                            break; //quebra o if e sai do for
                         }
                     }
-                    if (k == cont) { 
-                        vc[cont++] = va[i];
+                    if (k == cont) { //se o valor do k for igual ao contador
+                        vc[cont++] = va[i]; //pega o vc com o tamanho do contatodo e armazena o valor q está em va na posicao i 
                     }
-                    break;
+                    break; //quebra o if
                     
                 }
             }
         }
     
-        int[] resultado = new int[cont];
+        int[] resultado = new int[cont];// aloca um vetor com o tamanho do contador
         for (int i = 0; i < cont; i++) {
-            resultado[i] = vc[i];
+            resultado[i] = vc[i]; //coloca os valores no vetor
         }
     
         return resultado;
     }
 // 9. Diferença vetores
 public static int[] diferenca(int[] va, int[] vb) {
-    int[] vc = new int[va.length];
+    int[] vc = new int[va.length]; //vc vai receber va
     int cont = 0;
 
     for (int i = 0; i < va.length; i++) {
-        boolean encontrado = false;
+        boolean encontrado = false; 
         for (int j = 0; j < vb.length; j++) {
             if (va[i] == vb[j]) {
                 encontrado = true;
                 break;
             }
         }
-        if (!encontrado) {
-            boolean jaAdicionado = false;
+        if (!encontrado) { //se for diferente do encontrado
+            boolean jaAdicionado = false; //ele é tido como n existe
             for (int k = 0; k < cont; k++) {
-                if (vc[k] == va[i]) {
-                    jaAdicionado = true;
-                    break;
+                if (vc[k] == va[i]) { //se vc na posicao k for igual a va na posicao i
+                    jaAdicionado = true; //e se ja foi adicionado
+                    break;//quebra o if
                 }
             }
-            if (!jaAdicionado) {
+            if (!jaAdicionado) { //se ianda n foi adiicionado, adiciona
                 vc[cont] = va[i];
                 cont++;
             }
@@ -203,27 +203,27 @@ public static int[] diferenca(int[] va, int[] vb) {
 
     return resultado;
 }
-public static int[][] trianguloDePascal(int m) {
+/*public static int[][] trianguloDePascal(int m) {
     int[][] resultado = new int[m][m];
     
     for (int i = 0; i < m; i++) {
         resultado[i][0] = 1; // oq ta erradp mds
         for (int j = 1; j <= i; j++) {
-            //resultado[i] /*ele vai retornar o numero 1*/[j]/*numero q ta em j */ ; 
+            //resultado[i] //ele vai retornar o numero 1 [j]//numero q ta em j ; 
         }
     }
     
     return resultado;
-}
+}*/
     // 11. Matriz transposta n enetendi nd
     public static int[][] matrizTranspor(int[][] m) {
         int linhas = m.length;
-        int colunas = m[0].length;
+        int colunas = m[0].length;//pq so da certo assim?
         int[][] resultado = new int[colunas][linhas];
 
         for (int i = 0; i < linhas; i++) {
             for (int j = 0; j < colunas; j++) {
-                resultado[j][i] = m[i][j];
+                resultado[j][i] = m[i][j];//aqui inverte as linhas com as colunas
             }
         }
 

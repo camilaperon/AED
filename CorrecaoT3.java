@@ -11,7 +11,7 @@ public class CorrecaoT3{
         q7(); //União
         q8(); //Interseção
         q9(); //Diferença
-        q10(); //Triangulo de Pascal
+        //q10(); //Triangulo de Pascal
         q11(); //MatrizTransposta
         q12(); //Permutacao de Linhas
        // q13(); //Multiplicação de matrizes
@@ -216,7 +216,7 @@ public class CorrecaoT3{
         System.out.println();
     }
 
-    public static void q10(){
+    /*public static void q10(){
         System.out.println("## Questão 10 - Triangulo de Pascal ##");
         
         mostrarMatriz(T3.trianguloDePascal(5));
@@ -224,7 +224,7 @@ public class CorrecaoT3{
         mostrarMatriz(T3.trianguloDePascal(10));
 
         System.out.println();
-    }
+    }*/
 
     public static void q11(){
         System.out.println("## Questão 11 - Matriz Transposta ##");
